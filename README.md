@@ -40,8 +40,11 @@ Check If IP Live Using DNS Or ARP File Or Using Socket And PORT,
 1-wifiHotSpots.java:
 
 – Method For Connecting to WiFi Network (hotspot)
+
 – Method To Check if The Device Is Connected to Hotspot using wifi
+
 – Method To Get hotspot Max Level of all Hotspots Around you
+
 – Method To Sort All Hotspots Around you By Level
 – Method To Get List of WIFI Networks (hotspots) Around you
 – Method To Get and showing List of WIFI Networks (hotspots) Around you
