@@ -5,22 +5,37 @@ Android HotSpot Api and much more.
 
 1-wifiHotSpots.java:
 
-Helps You To Connect To Hotspot ,Get All Hotspots Around You,Sort All Hotspots By Signle Level,Start Device Local Hotspot ,Start and Stop Scanning For Hotspots Or You Can Use Time For Scanning Periodically,Check If Device is Connect To Hotspot ,Check If Device Local Hotspot is turned on ,Get Signal Frequency or Level…..
+Helps You To Connect To Hotspot ,
+Get All Hotspots Around You,
+Sort All Hotspots By Signle Level,
+Start Device Local Hotspot ,
+Start and Stop Scanning For Hotspots Or You Can Use Time For Scanning Periodically,
+Check If Device is Connect To Hotspot ,
+Check If Device Local Hotspot is turned on ,
+Get Signal Frequency or Level…..
 
 2-wifiStatus.java :
 
-Helps You To Check If Device Is Support Wifi or Wifi direct,Check If Wifi Is Enabled Or Not ,Turn On Off And Toggle Wifi,Check If Device Is Connect To Internet Or Not ,Get SSID,BSSID,RSSI,Link Speed,Signal Strength,Get Type Of Connection Used By Mobile Now All This Just Use One Method checkWifi(int state)
-@param stat String : ISON,ON,OFF,TOGGLE,SUPPORT_WIFI,SUPPORT_WIFI_DIRECT,CONECT_AP,CONECT_INTERNET
+Helps You To Check If Device Is Support Wifi or Wifi direct,
+Check If Wifi Is Enabled Or Not ,
+Turn On Off And Toggle Wifi,
+Check If Device Is Connect To Internet Or Not ,
+Get SSID,BSSID,RSSI,Link Speed,Signal Strength,
+Get Type Of Connection Used By Mobile Now All This Just Use One Method checkWifi(int state)
+
 
 3-wifiSocket.java :
 
-Helps You To Send And Receive Text Message In Wifi Network,Send And Receive File In Wifi Network Using Socket
+Helps You To Send And Receive Text Message In Wifi Network, Send And Receive File In Wifi Network Using Socket
 
 4-wifiAddresses.java:
 
-Helps You To Get All Devices Connect to HotSpot Get Gateway,Device Ip Address Or MAC Address,Ping IP Address And Get Result Of Pinging IP,Get MAC Address From ARP File,Check If IP Live Using DNS Or ARP File Or Using Socket And PORT,
+Helps You To Get All Devices Connect to HotSpot Get Gateway,
+Device Ip Address Or MAC Address,
+Ping IP Address And Get Result Of Pinging IP,
+Get MAC Address From ARP File,
+Check If IP Live Using DNS Or ARP File Or Using Socket And PORT,
 
-This Is All API Methodes
 
 1-wifiHotSpots.java:
 
