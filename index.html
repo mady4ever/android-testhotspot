@@ -156,6 +156,147 @@ hotutil.stopScan();
 
 <p>Helps You To Check If Device Is Support Wifi or Wifi direct, Check If Wifi Is Enabled Or Not , Turn On Off And Toggle Wifi, Check If Device Is Connect To Internet Or Not , Get SSID,BSSID,RSSI,Link Speed,Signal Strength, Get Type Of Connection Used By Mobile Now All This Just Use One Method checkWifi(int state)</p>
 
+<p>Some examples of wifiStatus.
+Considering wifiStatus object is created like following.</p>
+
+<p>` 
+WifiStatus wu = new WifiStatus(this);</p>
+
+<p>`</p>
+
+<hr>
+
+<p>Check Device Support Wifi.</p>
+
+<p>`</p>
+
+<pre><code>                if(wu.checkWifi(wu.SUPPORT_WIFI)){
+                    Toast.makeText(getApplicationContext(), "Yes Device Support Wifi", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "No Device Not Support Wifi", Toast.LENGTH_LONG).show();
+                }
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
+<p>Check Device Support Wifi Direct.</p>
+
+<p>`</p>
+
+<pre><code>                if(wu.checkWifi(wu.SUPPORT_WIFI_DIRECT)){
+                    Toast.makeText(getApplicationContext(), "Yes Device Support Wifi Direct", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "No Device Not Support Wifi Wifi Direct", Toast.LENGTH_LONG).show();
+                }
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
+<p>Check Wifi Is On.</p>
+
+<p>`</p>
+
+<pre><code>                if(wu.checkWifi(wu.IS_WIFI_ON)){
+                    Toast.makeText(getApplicationContext(), "Yes Wifi Is Tured On", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Wifi Is Tured Off", Toast.LENGTH_LONG).show();
+                }
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
+<p>Turn on WIFI.</p>
+
+<p>`</p>
+
+<pre><code>                if(wu.checkWifi(wu.WIFI_ON)){
+                    Toast.makeText(getApplicationContext(), " Yes Wifi Is Tured On", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Wifi Not Tured On", Toast.LENGTH_LONG).show();
+                }
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
+<p>Turn Off WIFI.</p>
+
+<p>`</p>
+
+<pre><code>                if(wu.checkWifi(wu.WIFI_OFF)){
+                    Toast.makeText(getApplicationContext(), " Wifi Is Tured Off", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Wifi Not Tured Off", Toast.LENGTH_LONG).show();
+                }
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
+<p>Check Wifi Connected to HotSpot.</p>
+
+<p>`</p>
+
+<pre><code>                if(wu.checkWifi(wu.CONECT_HOTSPOT)){
+                    Toast.makeText(getApplicationContext(), "Yes  Device is Coneceting To Hostspot", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "No  Device is Not Coneceting To Hostspot", Toast.LENGTH_LONG).show();
+                }
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
+<p>Check Connected to Internet.</p>
+
+<p>`</p>
+
+<pre><code>                if(wu.checkWifi(wu.CONECT_INTERNET)){
+                    Toast.makeText(getApplicationContext(), "Yes  Device is Coneceting To Internet", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "No  Device is Not Coneceting To Internet", Toast.LENGTH_LONG).show();
+                }
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
+<p>Check Device is Connected to Internet via Wifi.</p>
+
+<p>`</p>
+
+<pre><code>                if(wu.checkWifi(wu.DATA_BY_WIFI)){
+                    Toast.makeText(getApplicationContext(), "Yes  Device is Coneceting Via Wifi", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "No  Device is Not Coneceting Via Wifi", Toast.LENGTH_LONG).show();
+                }
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
+<p>Misc. api's</p>
+
+<p>`</p>
+
+<pre><code>                Toast.makeText(getApplicationContext(), "BSSID "+wu.getBSSID()+"\n"+"RSSI "+wu.getRSSI()+"\n"+"SSID "+wu.getSSID()+"\n"+"SIGNL STRENGHT "+wu.getSignalStrength()+"\n"+"LINK SPEED "+wu.getLinkSpeed()+"\n"+wu.getLinkSpeedUnits(), Toast.LENGTH_LONG).show();
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
 <hr>
 
 <h3>
@@ -165,10 +306,242 @@ hotutil.stopScan();
 
 <hr>
 
+<p>Examples:-</p>
+
+<p>Considering object is created like following.</p>
+
+<p>`
+            WifiSocket ws  =  new WifiSocket(this);</p>
+
+<p>`</p>
+
+<hr>
+
+<p>Send Message to specific ip and port.</p>
+
+<p>`</p>
+
+<pre><code>                ws.sendMessage("192.168.1.102",5000,"Message from Heaven");
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
+<p>Receive Message at specifc Port.</p>
+
+<p>`</p>
+
+<pre><code>                ws.receiveMessage(5000, 10, new Runnable() {
+
+                    @Override
+                    public void run() {
+                        ((Activity)mContext).runOnUiThread(new Runnable() {
+
+                            public void run() {
+
+                                Toast.makeText(getApplicationContext(), ":::"+ws.receivedMessage+":::",
+                                        Toast.LENGTH_SHORT).show(); 
+
+                            }
+                        });
+                        Log.i("Receive text :: ",":::"+ws.receivedMessage+":::" ); 
+
+                    }                   
+                });
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
+<p>Send File.</p>
+
+<p>`</p>
+
+<pre><code>                ws.sendFile("192.168.1.102", 5000, Environment.getExternalStorageDirectory()+File.separator+"test.pdf");
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
+<p>Receive File.</p>
+
+<p>`</p>
+
+<pre><code>                ws.receiveFile(5000, Environment.getExternalStorageDirectory()+File.separator+"test.pdf");
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
 <h3>
 <a id="wifiaddresses" class="anchor" href="#wifiaddresses" aria-hidden="true"><span class="octicon octicon-link"></span></a>wifiAddresses</h3>
 
 <p>Helps You To Get All Devices Connect to HotSpot Get Gateway, Device Ip Address Or MAC Address, Ping IP Address And Get Result Of Pinging IP, Get MAC Address From ARP File, Check If IP Live Using DNS Or ARP File Or Using Socket And PORT,</p>
+
+<hr>
+
+<p>Examples.</p>
+
+<p>Considering object is created like.</p>
+
+<p><code>
+wifiAddresses au = new wifiAddresses(this);
+</code></p>
+
+<hr>
+
+<p>Gateway Ip/Mac Device Mac/Ip etc.</p>
+
+<p>`</p>
+
+<pre><code>                Toast.makeText(getApplicationContext(),"GatWay IP:" +au.getGatewayIPAddress()+"\n"+"GatWay MAC"+au.getGatWayMacAddress()+"\n"+"Device IP"+au.getDeviceIPAddress()+"\n"+"Device MAC"+au.getDeviceMacAddress(),
+                        Toast.LENGTH_SHORT).show();
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
+<p>Ping to Specific Ip.</p>
+
+<p>`</p>
+
+<pre><code>                if(au.pingCmd("192.168.1.101")){
+                    Toast.makeText(getApplicationContext(), "This IP is Live",
+                            Toast.LENGTH_SHORT).show();
+
+                }else{
+                    Toast.makeText(getApplicationContext(), "No This IP Not Live",
+                            Toast.LENGTH_SHORT).show();
+                }
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
+<p>Get Ping result.</p>
+
+<p>`
+                    Toast.makeText(getApplicationContext(), au.getPingResulta("192.168.1.101"),
+                            Toast.LENGTH_SHORT).show();</p>
+
+<p>`</p>
+
+<hr>
+
+<p>Get Mac from arp request.</p>
+
+<p><code>
+                    Toast.makeText(getApplicationContext(), au.getArpMacAddress("192.168.1.101"),
+                            Toast.LENGTH_SHORT).show();
+</code></p>
+
+<hr>
+
+<p>Check DNS is live.</p>
+
+<p>`</p>
+
+<pre><code>                au.dnsLive("192.168.1.101",new Runnable() {
+                    public void run() {
+
+                        ((Activity)mContext).runOnUiThread(new Runnable() {
+
+                            public void run() {
+                                if(au.isDnsLive){
+                                    Toast.makeText(getApplicationContext(), "This IP is Live Using Dns Test",
+                                            Toast.LENGTH_SHORT).show(); 
+                                }else{
+                                    Toast.makeText(getApplicationContext(), "This IP is Not Live Using Dns Test",
+                                            Toast.LENGTH_SHORT).show(); 
+                                }
+
+
+                            }
+                        });
+
+
+                    }
+                });
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
+<p>Check Port live.</p>
+
+<p>`</p>
+
+<pre><code>                au.portLive("192.168.1.101",new Runnable() {
+                    public void run() {
+
+                        ((Activity)mContext).runOnUiThread(new Runnable() {
+
+                            public void run() {
+                                if(au.isDnsLive){
+                                    Toast.makeText(getApplicationContext(), "This IP is Live Using Socket with some Ports test ",
+                                            Toast.LENGTH_SHORT).show(); 
+                                }else{
+                                    Toast.makeText(getApplicationContext(), "No This IP Not Live Using Socket with some Ports test",
+                                            Toast.LENGTH_SHORT).show(); 
+                                }
+
+
+                            }
+                        });
+
+
+                    }
+                });
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
+<p>Get All devices ip.</p>
+
+<p>`</p>
+
+<pre><code>                List&lt;String&gt; results3 = au.getAllDevicesIp();
+
+                for (String result : results3) {
+                    Toast.makeText(getApplicationContext(),result,
+                            Toast.LENGTH_SHORT).show();
+                    }
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
+<p>Check Device is Rooted.</p>
+
+<p>`</p>
+
+<pre><code>    au.CheckRoot();
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
+<p>Misc. </p>
+
+<p>`
+//set static Ip.</p>
+
+<p>public void setStaticIpInfo(String ip,String netMask,String gateWay,String dns1,String dns2)</p>
+
+<p>`</p>
+
+<hr>
 
 <hr>
 
