@@ -15,6 +15,107 @@ Check If Device is Connect To Hotspot ,
 Check If Device Local Hotspot is turned on ,
 Get Signal Frequency or Level…..
 
+Some example codes. 
+Following wifiHotSpots object is created like following.
+
+
+`
+wifiHotSpots hotutil =new wifiHotSpots(this);
+`
+
+Start HotSpot
+
+`
+					if(hotutil.startHotSpot(true)){
+						Toast.makeText(getApplicationContext(), " Device HotSpot is Turned On", Toast.LENGTH_LONG).show();
+					}else{
+						Toast.makeText(getApplicationContext(), "Device HotSpot is Not Turned On", Toast.LENGTH_LONG).show();
+					}
+`
+
+Stop HotSpot
+
+`
+					if(hotutil.startHotSpot(false)){
+						Toast.makeText(getApplicationContext(), " Device HotSpot is Turned Off", Toast.LENGTH_LONG).show();
+					}else{
+						Toast.makeText(getApplicationContext(), "Device HotSpot is Not Turned Off", Toast.LENGTH_LONG).show();
+					}
+`
+
+Edit/Set/Change HotSpot SSID and Password.
+
+`
+					if(hotutil.setHotSpot("SSID","PASSWORD")){
+						Toast.makeText(getApplicationContext(), " SSID And PassWord Of Device HotSpot is Changed ", Toast.LENGTH_LONG).show();
+					}else{
+						Toast.makeText(getApplicationContext(), "SSID And PassWord Of Device HotSpot Not Chaged", Toast.LENGTH_LONG).show();
+					}
+`
+
+Connect To Specific HotSpot.
+
+`
+					if(hotutil.connectToHotspot("SSID2", "123123123")){
+						Toast.makeText(getApplicationContext(), " Device is Conected to This HotSpot ", Toast.LENGTH_LONG).show();
+					}else{
+						Toast.makeText(getApplicationContext(), "Device is Not Conected to This HotSpot", Toast.LENGTH_LONG).show();
+					}
+`
+
+Add Wifi Network.
+
+`
+					hotutil.addWifiNetwork("ssid22", "pass", "WEP"); //Trird argument can be "WEP","OPEN","WAP"
+`
+
+Delete/Remove Wifi Network.
+
+`
+					hotutil.removeWifiNetwork("ssid22");
+`
+
+Scan Wifi NetWorks.
+
+`
+					 List<ScanResult> results = hotutil.getHotspotsList();
+				      
+				        for (ScanResult result : results) {
+				            Toast.makeText(getApplicationContext(), result.SSID + " " + result.level,
+				                    Toast.LENGTH_SHORT).show();
+				            }
+`
+
+Sort HotSpots by N/w level.
+
+`
+					 List<ScanResult> results2 = hotutil.sortHotspotsByLevel();
+				      
+				        for (ScanResult result : results2) {
+				            Toast.makeText(getApplicationContext(), result.SSID + " "+ result.level,
+				                    Toast.LENGTH_SHORT).show();
+				            }
+`
+
+Periodically Scan.
+
+`
+					hotutil.startScan(1,50000);
+`
+
+Stop Scan.
+
+`
+					hu.stopScan();  
+`
+
+Misc. methods.
+
+`
+					Toast.makeText(getApplicationContext(),"Security Mode"+ hu.getSecurityModeBySSID(wu.getSSID())+"\n"+"Signal Frequencey"+ Integer.toString(hu.getApfrequency(wu.getSSID()))+"\n"+"Signal Level"+Integer.toString(hu.getApSignalLevel(wu.getSSID()))+"\n"+"Capabilities"+ hu.getApCapabilities(wu.getSSID())+"\n", Toast.LENGTH_LONG).show();
+`
+
+
 2-wifiStatus.java :
 
 Helps You To Check If Device Is Support Wifi or Wifi direct,
