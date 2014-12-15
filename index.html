@@ -112,6 +112,32 @@ for (ScanResult result : results) {
 
 <hr>
 
+<p>Sort available by lavel.
+`
+List results2 = hotutil.sortHotspotsByLevel();</p>
+
+<pre><code>                    for (ScanResult result : results2) {
+                        Toast.makeText(getApplicationContext(), result.SSID + " "+ result.level,
+                                Toast.LENGTH_SHORT).show();
+                        }
+</code></pre>
+
+<p>`</p>
+
+<hr>
+
+<p>Start Scan periodically.
+<code>
+hotutil.startScan(1,50000);
+</code></p>
+
+<hr>
+
+<p>Stop Scan.
+<code>
+hotutil.stopScan();
+</code></p>
+
 <hr>
 
 <h3>
