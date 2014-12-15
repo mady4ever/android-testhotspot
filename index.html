@@ -54,37 +54,44 @@
 
 <p>Start HotSpot.
 <code>
-if(hotutil.startHotSpot(true)){
-//Success.
-}
+                    if(hotutil.startHotSpot(true)){
+                        Toast.makeText(getApplicationContext(), " Device HotSpot is Turned On", Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Device HotSpot is Not Turned On", Toast.LENGTH_LONG).show();
+                    }
 </code></p>
 
 <hr>
 
 <p>Stop HotSpot.
 <code>
-if(hotutil.startHotSpot(false)){
-//Success.
-}
+                    if(hotutil.startHotSpot(false)){
+                        Toast.makeText(getApplicationContext(), " Device HotSpot is Turned Off", Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Device HotSpot is Not Turned Off", Toast.LENGTH_LONG).show();
+                    }
 </code></p>
 
 <hr>
 
 <p>Change SSID and PASSWORD of hotspot.
 <code>
-if(hotutil.setHotSpot("SSID","PASSWORD")){
-//Success.
-}
+                    if(hotutil.setHotSpot("SSID","PASSWORD")){
+                        Toast.makeText(getApplicationContext(), " SSID And PassWord Of Device HotSpot is Chonged ", Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(), "SSID And PassWord Of Device HotSpot Not Chonged", Toast.LENGTH_LONG).show();
+                    }
 </code></p>
 
 <hr>
 
 <p>Connect to Specific HotSpot.
 <code>
-if(hotutil.connectToHotspot("SSID2", "Password")){
-//Success.
-}
-</code></p>
+                    if(hotutil.connectToHotspot("SSID2", "Password")){
+                        Toast.makeText(getApplicationContext(), " Device is Connected to This HotSpot ", Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Device is Not Connected to This HotSpot", Toast.LENGTH_LONG).show();
+                    }</code></p>
 
 <hr>
 
@@ -103,12 +110,16 @@ hotutil.removeWifiNetwork("ssid22");
 <hr>
 
 <p>List/Scan available N/W's
-<code>
-List&lt;ScanResult&gt; results = hu.getHotspotsList();
-for (ScanResult result : results) {
-       //results contains the wifi n/w info. for more please see javadoc of api's.
-}
-</code></p>
+`
+                     List results = hotutil.getHotspotsList();</p>
+
+<pre><code>                    for (ScanResult result : results) {
+                        Toast.makeText(getApplicationContext(), result.SSID + " " + result.level,
+                                Toast.LENGTH_SHORT).show();
+                        }
+</code></pre>
+
+<p>`</p>
 
 <hr>
 
