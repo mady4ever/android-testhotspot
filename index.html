@@ -45,6 +45,73 @@
 
 <p>Helps You To Connect To Hotspot , Get All Hotspots Around You, Sort All Hotspots By Signle Level, Start Device Local Hotspot , Start and Stop Scanning For Hotspots Or You Can Use Time For Scanning Periodically, Check If Device is Connect To Hotspot , Check If Device Local Hotspot is turned on , Get Signal Frequency or Level…..</p>
 
+<p>Some examples. Considering hotutil is object created like following.
+<code>
+  wifiHotSpots  hotutil =new wifiHotSpots(this);
+</code></p>
+
+<hr>
+
+<p>Start HotSpot.
+<code>
+if(hotutil.startHotSpot(true)){
+//Success.
+}
+</code></p>
+
+<hr>
+
+<p>Stop HotSpot.
+<code>
+if(hotutil.startHotSpot(false)){
+//Success.
+}
+</code></p>
+
+<hr>
+
+<p>Change SSID and PASSWORD of hotspot.
+<code>
+if(hotutil.setHotSpot("SSID","PASSWORD")){
+//Success.
+}
+</code></p>
+
+<hr>
+
+<p>Connect to Specific HotSpot.
+<code>
+if(hotutil.connectToHotspot("SSID2", "Password")){
+//Success.
+}
+</code></p>
+
+<hr>
+
+<p>Add Wifi N/W.
+<code>
+hotutil.addWifiNetwork("ssid22", "pass", "WEP"); //last parameter can be "OPEN","WEP" or "WAP"
+</code></p>
+
+<hr>
+
+<p>Remove Wifi N/W.
+<code>
+hotutil.removeWifiNetwork("ssid22");
+</code></p>
+
+<hr>
+
+<p>List/Scan available N/W's
+<code>
+List&lt;ScanResult&gt; results = hu.getHotspotsList();
+for (ScanResult result : results) {
+       //results contains the wifi n/w info. for more please see javadoc of api's.
+}
+</code></p>
+
+<hr>
+
 <hr>
 
 <h3>
