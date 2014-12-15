@@ -259,7 +259,7 @@ Examples:-
 Considering object is created like following.
 
 `
-WifiSocket ws  =  new WifiSocket(this);
+			WifiSocket ws  =  new WifiSocket(this);
 
 `
 
@@ -320,6 +320,141 @@ Device Ip Address Or MAC Address,
 Ping IP Address And Get Result Of Pinging IP,
 Get MAC Address From ARP File,
 Check If IP Live Using DNS Or ARP File Or Using Socket And PORT,
+
+Examples.
+
+Considering object is created like.
+
+`
+wifiAddresses au = new wifiAddresses(this);
+`
+Gateway Ip/Mac Device Mac/Ip etc.
+
+`
+
+					Toast.makeText(getApplicationContext(),"GatWay IP:" +au.getGatewayIPAddress()+"\n"+"GatWay MAC"+au.getGatWayMacAddress()+"\n"+"Device IP"+au.getDeviceIPAddress()+"\n"+"Device MAC"+au.getDeviceMacAddress(),
+		                    Toast.LENGTH_SHORT).show();
+
+`
+
+Ping to Specific Ip.
+
+`
+
+					if(au.pingCmd("192.168.1.101")){
+						Toast.makeText(getApplicationContext(), "This IP is Live",
+			                    Toast.LENGTH_SHORT).show();
+						
+					}else{
+						Toast.makeText(getApplicationContext(), "No This IP Not Live",
+			                    Toast.LENGTH_SHORT).show();
+					}
+					
+`
+
+Get Ping result.
+
+`
+					Toast.makeText(getApplicationContext(), au.getPingResulta("192.168.1.101"),
+		                    Toast.LENGTH_SHORT).show();
+		                    
+`
+
+Get Mac from arp request.
+
+`
+					Toast.makeText(getApplicationContext(), au.getArpMacAddress("192.168.1.101"),
+		                    Toast.LENGTH_SHORT).show();
+`
+
+
+Check DNS is live.
+
+`
+
+					au.dnsLive("192.168.1.101",new Runnable() {
+                 	    public void run() {
+                 	    	
+                 	    	((Activity)mContext).runOnUiThread(new Runnable() {
+                 
+                 	    		public void run() {
+                 	    	    	if(au.isDnsLive){
+                 	    	    		Toast.makeText(getApplicationContext(), "This IP is Live Using Dns Test",
+                			                    Toast.LENGTH_SHORT).show(); 
+                 	    	    	}else{
+                 	    	    		Toast.makeText(getApplicationContext(), "This IP is Not Live Using Dns Test",
+                			                    Toast.LENGTH_SHORT).show(); 
+                 	    	    	}
+                 	    	    	
+                 	    	    	
+                 	    	    }
+                 	    	});
+                 	    	 
+                 	    	
+                 	    }
+                 	});
+                 	
+
+`
+
+
+Check Port live.
+
+`
+
+					au.portLive("192.168.1.101",new Runnable() {
+                 	    public void run() {
+                 	    	
+                 	    	((Activity)mContext).runOnUiThread(new Runnable() {
+                 
+                 	    		public void run() {
+                 	    	    	if(au.isDnsLive){
+                 	    	    		Toast.makeText(getApplicationContext(), "This IP is Live Using Socket with some Ports test ",
+                			                    Toast.LENGTH_SHORT).show(); 
+                 	    	    	}else{
+                 	    	    		Toast.makeText(getApplicationContext(), "No This IP Not Live Using Socket with some Ports test",
+                			                    Toast.LENGTH_SHORT).show(); 
+                 	    	    	}
+                 	    	    	
+                 	    	    	
+                 	    	    }
+                 	    	});
+                 	    	 
+                 	    	
+                 	    }
+                 	});
+                 	
+`
+
+Get All devices ip.
+
+`
+
+                	List<String> results3 = au.getAllDevicesIp();
+				      
+			        for (String result : results3) {
+			            Toast.makeText(getApplicationContext(),result,
+			                    Toast.LENGTH_SHORT).show();
+			            }
+
+`
+
+Check Device is Rooted.
+
+`
+
+		au.CheckRoot();
+
+`
+
+Misc. 
+
+`
+//set static Ip.
+
+public void setStaticIpInfo(String ip,String netMask,String gateWay,String dns1,String dns2)
+
+`
 
 
 1-wifiHotSpots.java:
