@@ -56,11 +56,13 @@ Edit/Set/Change HotSpot SSID and Password.
 Connect To Specific HotSpot.
 
 `
+
 					if(hotutil.connectToHotspot("SSID2", "123123123")){
 						Toast.makeText(getApplicationContext(), " Device is Conected to This HotSpot ", Toast.LENGTH_LONG).show();
 					}else{
 						Toast.makeText(getApplicationContext(), "Device is Not Conected to This HotSpot", Toast.LENGTH_LONG).show();
 					}
+
 `
 
 Add Wifi Network.
@@ -77,24 +79,30 @@ Delete/Remove Wifi Network.
 
 Scan Wifi NetWorks.
 
+
 `
+
 					 List<ScanResult> results = hotutil.getHotspotsList();
 				      
 				        for (ScanResult result : results) {
 				            Toast.makeText(getApplicationContext(), result.SSID + " " + result.level,
 				                    Toast.LENGTH_SHORT).show();
 				            }
+
 `
+
 
 Sort HotSpots by N/w level.
 
 `
+
 					 List<ScanResult> results2 = hotutil.sortHotspotsByLevel();
 				      
 				        for (ScanResult result : results2) {
 				            Toast.makeText(getApplicationContext(), result.SSID + " "+ result.level,
 				                    Toast.LENGTH_SHORT).show();
 				            }
+
 `
 
 Periodically Scan.
@@ -113,6 +121,7 @@ Misc. methods.
 
 `
 					Toast.makeText(getApplicationContext(),"Security Mode"+ hu.getSecurityModeBySSID(wu.getSSID())+"\n"+"Signal Frequencey"+ Integer.toString(hu.getApfrequency(wu.getSSID()))+"\n"+"Signal Level"+Integer.toString(hu.getApSignalLevel(wu.getSSID()))+"\n"+"Capabilities"+ hu.getApCapabilities(wu.getSSID())+"\n", Toast.LENGTH_LONG).show();
+					
 `
 
 
@@ -125,10 +134,184 @@ Check If Device Is Connect To Internet Or Not ,
 Get SSID,BSSID,RSSI,Link Speed,Signal Strength,
 Get Type Of Connection Used By Mobile Now All This Just Use One Method checkWifi(int state)
 
+Some examples of wifiStatus.
+Considering wifiStatus object is created like following.
+
+` 
+WifiStatus wu = new WifiStatus(this);
+
+`
+
+Check Device Support Wifi.
+
+`
+
+					if(wu.checkWifi(wu.SUPPORT_WIFI)){
+						Toast.makeText(getApplicationContext(), "Yes Device Support Wifi", Toast.LENGTH_LONG).show();
+					}else{
+						Toast.makeText(getApplicationContext(), "No Device Not Support Wifi", Toast.LENGTH_LONG).show();
+					}
+					
+
+`
+
+Check Device Support Wifi Direct.
+
+`
+
+					if(wu.checkWifi(wu.SUPPORT_WIFI_DIRECT)){
+						Toast.makeText(getApplicationContext(), "Yes Device Support Wifi Direct", Toast.LENGTH_LONG).show();
+					}else{
+						Toast.makeText(getApplicationContext(), "No Device Not Support Wifi Wifi Direct", Toast.LENGTH_LONG).show();
+					}
+					
+
+`
+
+Check Wifi Is On.
+
+`
+
+					if(wu.checkWifi(wu.IS_WIFI_ON)){
+						Toast.makeText(getApplicationContext(), "Yes Wifi Is Tured On", Toast.LENGTH_LONG).show();
+					}else{
+						Toast.makeText(getApplicationContext(), "Wifi Is Tured Off", Toast.LENGTH_LONG).show();
+					}
+					
+
+`
+
+Turn on WIFI.
+
+`
+
+					if(wu.checkWifi(wu.WIFI_ON)){
+						Toast.makeText(getApplicationContext(), " Yes Wifi Is Tured On", Toast.LENGTH_LONG).show();
+					}else{
+						Toast.makeText(getApplicationContext(), "Wifi Not Tured On", Toast.LENGTH_LONG).show();
+					}
+
+`
+
+Turn Off WIFI.
+
+`
+
+					if(wu.checkWifi(wu.WIFI_OFF)){
+						Toast.makeText(getApplicationContext(), " Wifi Is Tured Off", Toast.LENGTH_LONG).show();
+					}else{
+						Toast.makeText(getApplicationContext(), "Wifi Not Tured Off", Toast.LENGTH_LONG).show();
+					}
+
+`
+
+Check Wifi Connected to HotSpot.
+
+`
+
+					if(wu.checkWifi(wu.CONECT_HOTSPOT)){
+						Toast.makeText(getApplicationContext(), "Yes  Device is Coneceting To Hostspot", Toast.LENGTH_LONG).show();
+					}else{
+						Toast.makeText(getApplicationContext(), "No  Device is Not Coneceting To Hostspot", Toast.LENGTH_LONG).show();
+					}
+
+`
+
+Check Connected to Internet.
+
+`
+
+					if(wu.checkWifi(wu.CONECT_INTERNET)){
+						Toast.makeText(getApplicationContext(), "Yes  Device is Coneceting To Internet", Toast.LENGTH_LONG).show();
+					}else{
+						Toast.makeText(getApplicationContext(), "No  Device is Not Coneceting To Internet", Toast.LENGTH_LONG).show();
+					}
+
+`
+
+Check Device is Connected to Internet via Wifi.
+
+`
+
+					if(wu.checkWifi(wu.DATA_BY_WIFI)){
+						Toast.makeText(getApplicationContext(), "Yes  Device is Coneceting Via Wifi", Toast.LENGTH_LONG).show();
+					}else{
+						Toast.makeText(getApplicationContext(), "No  Device is Not Coneceting Via Wifi", Toast.LENGTH_LONG).show();
+					}
+
+`
+
+Misc. api's
+
+`
+
+					Toast.makeText(getApplicationContext(), "BSSID "+wu.getBSSID()+"\n"+"RSSI "+wu.getRSSI()+"\n"+"SSID "+wu.getSSID()+"\n"+"SIGNL STRENGHT "+wu.getSignalStrength()+"\n"+"LINK SPEED "+wu.getLinkSpeed()+"\n"+wu.getLinkSpeedUnits(), Toast.LENGTH_LONG).show();
+
+`
 
 3-wifiSocket.java :
 
 Helps You To Send And Receive Text Message In Wifi Network, Send And Receive File In Wifi Network Using Socket
+
+
+Examples:-
+
+Considering object is created like following.
+
+`
+WifiSocket ws  =  new WifiSocket(this);
+
+`
+
+Send Message to specific ip and port.
+
+`
+
+                	ws.sendMessage("192.168.1.102",5000,"Message from Heaven");
+
+`
+
+Receive Message at specifc Port.
+
+`
+
+                 	ws.receiveMessage(5000, 10, new Runnable() {
+
+						@Override
+						public void run() {
+							((Activity)mContext).runOnUiThread(new Runnable() {
+				                 
+                 	    		public void run() {
+                 	    	    	
+                 	    	    	Toast.makeText(getApplicationContext(), ":::"+ws.receivedMessage+":::",
+            			                    Toast.LENGTH_SHORT).show(); 
+                 	    	    	
+                 	    	    }
+                 	    	});
+                 	    	Log.i("Receive text :: ",":::"+ws.receivedMessage+":::" ); 
+                 	    	
+                 	    }			    	
+                	});
+                	
+`
+
+
+Send File.
+
+`
+
+            		ws.sendFile("192.168.1.102", 5000, Environment.getExternalStorageDirectory()+File.separator+"test.pdf");
+
+`
+
+Receive File.
+
+`
+
+                	ws.receiveFile(5000, Environment.getExternalStorageDirectory()+File.separator+"test.pdf");
+
+`
+
 
 4-wifiAddresses.java:
 
