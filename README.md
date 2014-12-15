@@ -2,6 +2,7 @@ android-testhotspot
 ===================
 
 Android HotSpot Api and much more.
+For Api Doc please visit http://mady4ever.github.io/TestHotspotdoc/
 
 1-wifiHotSpots.java:
 
