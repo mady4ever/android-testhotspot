@@ -20,43 +20,43 @@ Some example codes.
 Following wifiHotSpots object is created like following.
 
 
-`
+```
 wifiHotSpots hotutil =new wifiHotSpots(this);
-`
+```
 
 Start HotSpot
 
-`
+```
 					if(hotutil.startHotSpot(true)){
 						Toast.makeText(getApplicationContext(), " Device HotSpot is Turned On", Toast.LENGTH_LONG).show();
 					}else{
 						Toast.makeText(getApplicationContext(), "Device HotSpot is Not Turned On", Toast.LENGTH_LONG).show();
 					}
-`
+```
 
 Stop HotSpot
 
-`
+```
 					if(hotutil.startHotSpot(false)){
 						Toast.makeText(getApplicationContext(), " Device HotSpot is Turned Off", Toast.LENGTH_LONG).show();
 					}else{
 						Toast.makeText(getApplicationContext(), "Device HotSpot is Not Turned Off", Toast.LENGTH_LONG).show();
 					}
-`
+```
 
 Edit/Set/Change HotSpot SSID and Password.
 
-`
+```
 					if(hotutil.setHotSpot("SSID","PASSWORD")){
 						Toast.makeText(getApplicationContext(), " SSID And PassWord Of Device HotSpot is Changed ", Toast.LENGTH_LONG).show();
 					}else{
 						Toast.makeText(getApplicationContext(), "SSID And PassWord Of Device HotSpot Not Chaged", Toast.LENGTH_LONG).show();
 					}
-`
+```
 
 Connect To Specific HotSpot.
 
-`
+```
 
 					if(hotutil.connectToHotspot("SSID2", "123123123")){
 						Toast.makeText(getApplicationContext(), " Device is Conected to This HotSpot ", Toast.LENGTH_LONG).show();
@@ -64,24 +64,24 @@ Connect To Specific HotSpot.
 						Toast.makeText(getApplicationContext(), "Device is Not Conected to This HotSpot", Toast.LENGTH_LONG).show();
 					}
 
-`
+```
 
 Add Wifi Network.
 
-`
+```
 					hotutil.addWifiNetwork("ssid22", "pass", "WEP"); //Trird argument can be "WEP","OPEN","WAP"
-`
+```
 
 Delete/Remove Wifi Network.
 
-`
+```
 					hotutil.removeWifiNetwork("ssid22");
-`
+```
 
 Scan Wifi NetWorks.
 
 
-`
+```
 
 					 List<ScanResult> results = hotutil.getHotspotsList();
 				      
@@ -90,12 +90,12 @@ Scan Wifi NetWorks.
 				                    Toast.LENGTH_SHORT).show();
 				            }
 
-`
+```
 
 
 Sort HotSpots by N/w level.
 
-`
+```
 
 					 List<ScanResult> results2 = hotutil.sortHotspotsByLevel();
 				      
@@ -104,26 +104,26 @@ Sort HotSpots by N/w level.
 				                    Toast.LENGTH_SHORT).show();
 				            }
 
-`
+```
 
 Periodically Scan.
 
-`
+```
 					hotutil.startScan(1,50000);
-`
+```
 
 Stop Scan.
 
-`
+```
 					hu.stopScan();  
-`
+```
 
 Misc. methods.
 
-`
+```
 					Toast.makeText(getApplicationContext(),"Security Mode"+ hu.getSecurityModeBySSID(wu.getSSID())+"\n"+"Signal Frequencey"+ Integer.toString(hu.getApfrequency(wu.getSSID()))+"\n"+"Signal Level"+Integer.toString(hu.getApSignalLevel(wu.getSSID()))+"\n"+"Capabilities"+ hu.getApCapabilities(wu.getSSID())+"\n", Toast.LENGTH_LONG).show();
 					
-`
+```
 
 
 2-wifiStatus.java :
@@ -138,14 +138,14 @@ Get Type Of Connection Used By Mobile Now All This Just Use One Method checkWifi
 Some examples of wifiStatus.
 Considering wifiStatus object is created like following.
 
-` 
+```
 WifiStatus wu = new WifiStatus(this);
 
-`
+```
 
 Check Device Support Wifi.
 
-`
+```
 
 					if(wu.checkWifi(wu.SUPPORT_WIFI)){
 						Toast.makeText(getApplicationContext(), "Yes Device Support Wifi", Toast.LENGTH_LONG).show();
@@ -154,11 +154,11 @@ Check Device Support Wifi.
 					}
 					
 
-`
+```
 
 Check Device Support Wifi Direct.
 
-`
+```
 
 					if(wu.checkWifi(wu.SUPPORT_WIFI_DIRECT)){
 						Toast.makeText(getApplicationContext(), "Yes Device Support Wifi Direct", Toast.LENGTH_LONG).show();
@@ -167,11 +167,11 @@ Check Device Support Wifi Direct.
 					}
 					
 
-`
+```
 
 Check Wifi Is On.
 
-`
+```
 
 					if(wu.checkWifi(wu.IS_WIFI_ON)){
 						Toast.makeText(getApplicationContext(), "Yes Wifi Is Tured On", Toast.LENGTH_LONG).show();
@@ -180,11 +180,11 @@ Check Wifi Is On.
 					}
 					
 
-`
+```
 
 Turn on WIFI.
 
-`
+```
 
 					if(wu.checkWifi(wu.WIFI_ON)){
 						Toast.makeText(getApplicationContext(), " Yes Wifi Is Tured On", Toast.LENGTH_LONG).show();
@@ -192,11 +192,11 @@ Turn on WIFI.
 						Toast.makeText(getApplicationContext(), "Wifi Not Tured On", Toast.LENGTH_LONG).show();
 					}
 
-`
+```
 
 Turn Off WIFI.
 
-`
+```
 
 					if(wu.checkWifi(wu.WIFI_OFF)){
 						Toast.makeText(getApplicationContext(), " Wifi Is Tured Off", Toast.LENGTH_LONG).show();
@@ -204,11 +204,11 @@ Turn Off WIFI.
 						Toast.makeText(getApplicationContext(), "Wifi Not Tured Off", Toast.LENGTH_LONG).show();
 					}
 
-`
+```
 
 Check Wifi Connected to HotSpot.
 
-`
+```
 
 					if(wu.checkWifi(wu.CONECT_HOTSPOT)){
 						Toast.makeText(getApplicationContext(), "Yes  Device is Coneceting To Hostspot", Toast.LENGTH_LONG).show();
@@ -216,11 +216,11 @@ Check Wifi Connected to HotSpot.
 						Toast.makeText(getApplicationContext(), "No  Device is Not Coneceting To Hostspot", Toast.LENGTH_LONG).show();
 					}
 
-`
+```
 
 Check Connected to Internet.
 
-`
+```
 
 					if(wu.checkWifi(wu.CONECT_INTERNET)){
 						Toast.makeText(getApplicationContext(), "Yes  Device is Coneceting To Internet", Toast.LENGTH_LONG).show();
@@ -228,11 +228,11 @@ Check Connected to Internet.
 						Toast.makeText(getApplicationContext(), "No  Device is Not Coneceting To Internet", Toast.LENGTH_LONG).show();
 					}
 
-`
+```
 
 Check Device is Connected to Internet via Wifi.
 
-`
+```
 
 					if(wu.checkWifi(wu.DATA_BY_WIFI)){
 						Toast.makeText(getApplicationContext(), "Yes  Device is Coneceting Via Wifi", Toast.LENGTH_LONG).show();
@@ -240,15 +240,15 @@ Check Device is Connected to Internet via Wifi.
 						Toast.makeText(getApplicationContext(), "No  Device is Not Coneceting Via Wifi", Toast.LENGTH_LONG).show();
 					}
 
-`
+```
 
 Misc. api's
 
-`
+```
 
 					Toast.makeText(getApplicationContext(), "BSSID "+wu.getBSSID()+"\n"+"RSSI "+wu.getRSSI()+"\n"+"SSID "+wu.getSSID()+"\n"+"SIGNL STRENGHT "+wu.getSignalStrength()+"\n"+"LINK SPEED "+wu.getLinkSpeed()+"\n"+wu.getLinkSpeedUnits(), Toast.LENGTH_LONG).show();
 
-`
+```
 
 3-wifiSocket.java :
 
@@ -259,22 +259,22 @@ Examples:-
 
 Considering object is created like following.
 
-`
+```
 			WifiSocket ws  =  new WifiSocket(this);
 
-`
+```
 
 Send Message to specific ip and port.
 
-`
+```
 
                 	ws.sendMessage("192.168.1.102",5000,"Message from Heaven");
 
-`
+```
 
 Receive Message at specifc Port.
 
-`
+```
 
                  	ws.receiveMessage(5000, 10, new Runnable() {
 
@@ -294,24 +294,24 @@ Receive Message at specifc Port.
                  	    }			    	
                 	});
                 	
-`
+```
 
 
 Send File.
 
-`
+```
 
             		ws.sendFile("192.168.1.102", 5000, Environment.getExternalStorageDirectory()+File.separator+"test.pdf");
 
-`
+```
 
 Receive File.
 
-`
+```
 
                 	ws.receiveFile(5000, Environment.getExternalStorageDirectory()+File.separator+"test.pdf");
 
-`
+```
 
 
 4-wifiAddresses.java:
@@ -326,21 +326,21 @@ Examples.
 
 Considering object is created like.
 
-`
+```
 wifiAddresses au = new wifiAddresses(this);
-`
+```
 Gateway Ip/Mac Device Mac/Ip etc.
 
-`
+```
 
 					Toast.makeText(getApplicationContext(),"GatWay IP:" +au.getGatewayIPAddress()+"\n"+"GatWay MAC"+au.getGatWayMacAddress()+"\n"+"Device IP"+au.getDeviceIPAddress()+"\n"+"Device MAC"+au.getDeviceMacAddress(),
 		                    Toast.LENGTH_SHORT).show();
 
-`
+```
 
 Ping to Specific Ip.
 
-`
+```
 
 					if(au.pingCmd("192.168.1.101")){
 						Toast.makeText(getApplicationContext(), "This IP is Live",
@@ -351,27 +351,27 @@ Ping to Specific Ip.
 			                    Toast.LENGTH_SHORT).show();
 					}
 					
-`
+```
 
 Get Ping result.
 
-`
+```
 					Toast.makeText(getApplicationContext(), au.getPingResulta("192.168.1.101"),
 		                    Toast.LENGTH_SHORT).show();
 		                    
-`
+```
 
 Get Mac from arp request.
 
-`
+```
 					Toast.makeText(getApplicationContext(), au.getArpMacAddress("192.168.1.101"),
 		                    Toast.LENGTH_SHORT).show();
-`
+```
 
 
 Check DNS is live.
 
-`
+```
 
 					au.dnsLive("192.168.1.101",new Runnable() {
                  	    public void run() {
@@ -396,12 +396,12 @@ Check DNS is live.
                  	});
                  	
 
-`
+```
 
 
 Check Port live.
 
-`
+```
 
 					au.portLive("192.168.1.101",new Runnable() {
                  	    public void run() {
@@ -425,11 +425,11 @@ Check Port live.
                  	    }
                  	});
                  	
-`
+```
 
 Get All devices ip.
 
-`
+```
 
                 	List<String> results3 = au.getAllDevicesIp();
 				      
@@ -438,24 +438,24 @@ Get All devices ip.
 			                    Toast.LENGTH_SHORT).show();
 			            }
 
-`
+```
 
 Check Device is Rooted.
 
-`
+```
 
 		au.CheckRoot();
 
-`
+```
 
 Misc. 
 
-`
+```
 //set static Ip.
 
 public void setStaticIpInfo(String ip,String netMask,String gateWay,String dns1,String dns2)
 
-`
+```
 
 
 1-wifiHotSpots.java:
