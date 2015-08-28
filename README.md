@@ -5,7 +5,7 @@ Android HotSpot Api and much more.
 For Api Doc please visit <http://mady4ever.github.io/TestHotspotdoc/>
 Or Webside <http://mady4ever.github.io/android-testhotspot>
 
-1-wifiHotSpots.java:
+##1-wifiHotSpots.java:
 
 Helps You To Connect To Hotspot ,
 Get All Hotspots Around You,
@@ -24,7 +24,7 @@ Following wifiHotSpots object is created like following.
 wifiHotSpots hotutil =new wifiHotSpots(this);
 ```
 
-Start HotSpot
+##Start HotSpot
 
 ```
 					if(hotutil.startHotSpot(true)){
@@ -34,7 +34,7 @@ Start HotSpot
 					}
 ```
 
-Stop HotSpot
+##Stop HotSpot
 
 ```
 					if(hotutil.startHotSpot(false)){
@@ -44,7 +44,7 @@ Stop HotSpot
 					}
 ```
 
-Edit/Set/Change HotSpot SSID and Password.
+##Edit/Set/Change HotSpot SSID and Password.
 
 ```
 					if(hotutil.setHotSpot("SSID","PASSWORD")){
@@ -54,7 +54,7 @@ Edit/Set/Change HotSpot SSID and Password.
 					}
 ```
 
-Connect To Specific HotSpot.
+##Connect To Specific HotSpot.
 
 ```
 
@@ -66,19 +66,19 @@ Connect To Specific HotSpot.
 
 ```
 
-Add Wifi Network.
+##Add Wifi Network.
 
 ```
 					hotutil.addWifiNetwork("ssid22", "pass", "WEP"); //Trird argument can be "WEP","OPEN","WAP"
 ```
 
-Delete/Remove Wifi Network.
+##Delete/Remove Wifi Network.
 
 ```
 					hotutil.removeWifiNetwork("ssid22");
 ```
 
-Scan Wifi NetWorks.
+##Scan Wifi NetWorks.
 
 
 ```
@@ -93,7 +93,7 @@ Scan Wifi NetWorks.
 ```
 
 
-Sort HotSpots by N/w level.
+##Sort HotSpots by N/w level.
 
 ```
 
@@ -106,19 +106,19 @@ Sort HotSpots by N/w level.
 
 ```
 
-Periodically Scan.
+##Periodically Scan.
 
 ```
 					hotutil.startScan(1,50000);
 ```
 
-Stop Scan.
+##Stop Scan.
 
 ```
 					hu.stopScan();  
 ```
 
-Misc. methods.
+##Misc. methods.
 
 ```
 					Toast.makeText(getApplicationContext(),"Security Mode"+ hu.getSecurityModeBySSID(wu.getSSID())+"\n"+"Signal Frequencey"+ Integer.toString(hu.getApfrequency(wu.getSSID()))+"\n"+"Signal Level"+Integer.toString(hu.getApSignalLevel(wu.getSSID()))+"\n"+"Capabilities"+ hu.getApCapabilities(wu.getSSID())+"\n", Toast.LENGTH_LONG).show();
@@ -126,7 +126,7 @@ Misc. methods.
 ```
 
 
-2-wifiStatus.java :
+##2-wifiStatus.java :
 
 Helps You To Check If Device Is Support Wifi or Wifi direct,
 Check If Wifi Is Enabled Or Not ,
@@ -143,7 +143,7 @@ WifiStatus wu = new WifiStatus(this);
 
 ```
 
-Check Device Support Wifi.
+##Check Device Support Wifi.
 
 ```
 
@@ -156,7 +156,7 @@ Check Device Support Wifi.
 
 ```
 
-Check Device Support Wifi Direct.
+##Check Device Support Wifi Direct.
 
 ```
 
@@ -169,7 +169,7 @@ Check Device Support Wifi Direct.
 
 ```
 
-Check Wifi Is On.
+##Check Wifi Is On.
 
 ```
 
@@ -182,7 +182,7 @@ Check Wifi Is On.
 
 ```
 
-Turn on WIFI.
+##Turn on WIFI.
 
 ```
 
@@ -194,7 +194,7 @@ Turn on WIFI.
 
 ```
 
-Turn Off WIFI.
+##Turn Off WIFI.
 
 ```
 
@@ -206,7 +206,7 @@ Turn Off WIFI.
 
 ```
 
-Check Wifi Connected to HotSpot.
+##Check Wifi Connected to HotSpot.
 
 ```
 
@@ -218,7 +218,7 @@ Check Wifi Connected to HotSpot.
 
 ```
 
-Check Connected to Internet.
+##Check Connected to Internet.
 
 ```
 
@@ -230,7 +230,7 @@ Check Connected to Internet.
 
 ```
 
-Check Device is Connected to Internet via Wifi.
+##Check Device is Connected to Internet via Wifi.
 
 ```
 
@@ -242,7 +242,7 @@ Check Device is Connected to Internet via Wifi.
 
 ```
 
-Misc. api's
+##Misc. api's
 
 ```
 
@@ -250,7 +250,7 @@ Misc. api's
 
 ```
 
-3-wifiSocket.java :
+##3-wifiSocket.java :
 
 Helps You To Send And Receive Text Message In Wifi Network, Send And Receive File In Wifi Network Using Socket
 
@@ -264,7 +264,7 @@ Considering object is created like following.
 
 ```
 
-Send Message to specific ip and port.
+##Send Message to specific ip and port.
 
 ```
 
@@ -272,7 +272,7 @@ Send Message to specific ip and port.
 
 ```
 
-Receive Message at specifc Port.
+##Receive Message at specifc Port.
 
 ```
 
@@ -297,7 +297,7 @@ Receive Message at specifc Port.
 ```
 
 
-Send File.
+##Send File.
 
 ```
 
@@ -305,7 +305,7 @@ Send File.
 
 ```
 
-Receive File.
+##Receive File.
 
 ```
 
@@ -314,7 +314,7 @@ Receive File.
 ```
 
 
-4-wifiAddresses.java:
+##4-wifiAddresses.java:
 
 Helps You To Get All Devices Connect to HotSpot Get Gateway,
 Device Ip Address Or MAC Address,
@@ -329,7 +329,7 @@ Considering object is created like.
 ```
 wifiAddresses au = new wifiAddresses(this);
 ```
-Gateway Ip/Mac Device Mac/Ip etc.
+##Gateway Ip/Mac Device Mac/Ip etc.
 
 ```
 
@@ -338,7 +338,7 @@ Gateway Ip/Mac Device Mac/Ip etc.
 
 ```
 
-Ping to Specific Ip.
+##Ping to Specific Ip.
 
 ```
 
@@ -353,7 +353,7 @@ Ping to Specific Ip.
 					
 ```
 
-Get Ping result.
+##Get Ping result.
 
 ```
 					Toast.makeText(getApplicationContext(), au.getPingResulta("192.168.1.101"),
@@ -361,7 +361,7 @@ Get Ping result.
 		                    
 ```
 
-Get Mac from arp request.
+##Get Mac from arp request.
 
 ```
 					Toast.makeText(getApplicationContext(), au.getArpMacAddress("192.168.1.101"),
@@ -369,7 +369,7 @@ Get Mac from arp request.
 ```
 
 
-Check DNS is live.
+##Check DNS is live.
 
 ```
 
@@ -399,7 +399,7 @@ Check DNS is live.
 ```
 
 
-Check Port live.
+##Check Port live.
 
 ```
 
@@ -427,7 +427,7 @@ Check Port live.
                  	
 ```
 
-Get All devices ip.
+##Get All devices ip.
 
 ```
 
@@ -440,7 +440,7 @@ Get All devices ip.
 
 ```
 
-Check Device is Rooted.
+##Check Device is Rooted.
 
 ```
 
@@ -448,7 +448,7 @@ Check Device is Rooted.
 
 ```
 
-Misc. 
+##Misc. 
 
 ```
 //set static Ip.
@@ -458,7 +458,7 @@ public void setStaticIpInfo(String ip,String netMask,String gateWay,String dns1,
 ```
 
 
-1-wifiHotSpots.java:
+##1-wifiHotSpots.java:
 
 – Method For Connecting to WiFi Network (hotspot)
 
@@ -490,7 +490,7 @@ public void setStaticIpInfo(String ip,String netMask,String gateWay,String dns1,
 
 – Method To Get Security Mode By Network SSID
 
-2-wifiStatus.java :
+##2-wifiStatus.java :
 
 
 – Method To Check if the Device Support Wifi or not
@@ -512,7 +512,7 @@ public void setStaticIpInfo(String ip,String netMask,String gateWay,String dns1,
 – Method to Get wifi Connection Status DISABLING,DISABLED,ENABLING,ENABLED,UNKNOWN
 
 
-3-wifiSocket.java:
+##3-wifiSocket.java:
 
 
 – Method To send message text in Wifi Network using socket
@@ -524,7 +524,7 @@ public void setStaticIpInfo(String ip,String netMask,String gateWay,String dns1,
 – Method To Receive File From Wifi Network using socket
 
 
-4-wifiAddresses.java:
+##4-wifiAddresses.java:
 
 
 – Method To Gets a list of all clients Ip Addresses connected to the Hotspot
@@ -548,5 +548,3 @@ public void setStaticIpInfo(String ip,String netMask,String gateWay,String dns1,
 – Method To Set static IP address, netmask, gateway
 
 – Method To Manually Change static IP address, netmask, gateway
-
-
