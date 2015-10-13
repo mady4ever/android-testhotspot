@@ -59,9 +59,9 @@ wifiHotSpots hotutil =new wifiHotSpots(this);
 ```
 
 					if(hotutil.connectToHotspot("SSID2", "123123123")){
-						Toast.makeText(getApplicationContext(), " Device is Conected to This HotSpot ", Toast.LENGTH_LONG).show();
+						Toast.makeText(getApplicationContext(), " Device is Connected to This HotSpot ", Toast.LENGTH_LONG).show();
 					}else{
-						Toast.makeText(getApplicationContext(), "Device is Not Conected to This HotSpot", Toast.LENGTH_LONG).show();
+						Toast.makeText(getApplicationContext(), "Device is Not Connected to This HotSpot", Toast.LENGTH_LONG).show();
 					}
 
 ```
